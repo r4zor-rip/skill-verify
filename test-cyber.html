@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cybersecurity Basics Test</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Cybersecurity Basics Test</h1>
+        <p>Answer the following questions to test your knowledge in cybersecurity basics.</p>
+        <p>Note: These questions are based on the first 20 levels of OverTheWire: Bandit</p>
+         <form id="quizForm">
+
+  <div class="question">
+    <p>1. What command is used to connect to a remote server via SSH on a specific port?</p>
+    <label><input type="radio" name="q1" value="a"> ssh -p [port] user@host</label>
+    <label><input type="radio" name="q1" value="b"> ssh user@host --port [port]</label>
+    <label><input type="radio" name="q1" value="c"> connect ssh [host]:[port]</label>
+    <label><input type="radio" name="q1" value="d"> ssh://host:port</label>
+  </div>
+
+  <div class="question">
+    <p>2. Which command lists all files in a directory, including hidden ones?</p>
+    <label><input type="radio" name="q2" value="a"> ls</label>
+    <label><input type="radio" name="q2" value="b"> ls -a</label>
+    <label><input type="radio" name="q2" value="c"> ls -h</label>
+    <label><input type="radio" name="q2" value="d"> find --hidden</label>
+  </div>
+
+<div class="question">
+  <p>3. What command is used to search for a file based on it's size and type?</p>
+  <label><input type="radio" name="q3" value="a"> locate / -size -type </label>
+  <label><input type="radio" name="q3" value="b">grep -r / -size -type </label>
+  <label><input type="radio" name="q3" value="c"> find -size [size] -type [type]</label>
+  <label><input type="radio" name="q3" value="d"> whereis -all -size -type</label>
+</div>
+
+<div class="question">
+  <p>4. What command rotates "characters" by 13 positions?</p>
+  <label><input type="radio" name="q4" value="a"> echo "characters" | tr 'A-Za-z' 'L-ZA-Kl-za-k'</label>
+  <label><input type="radio" name="q4" value="b"> echo "characters" | tr 'A-Za-z' 'N-ZA-Mn-za-m'</label>
+  <label><input type="radio" name="q4" value="c"> echo "characters" | tr 'A-Za-z' 'O-ZA-No-za-n'</label>
+  <label><input type="radio" name="q4" value="d"> echo "characters" | tr 'A-Za-z' 'P-ZA-Qp-za-q'</label>
+</div>
+
+<div class="question">
+  <p>5. You encounter a compiled binary file that you suspect contains a readable password string,
+     but running cat on it dumps unreadable control codes and terminal garbage. 
+     Which core utility should you use to extract printable text sequences from the binary?</p>
+  <label><input type="radio" name="q5" value="a"> strings</label>
+  <label><input type="radio" name="q5" value="b"> grep</label>
+  <label><input type="radio" name="q5" value="c"> hexdump</label>
+  <label><input type="radio" name="q5" value="d"> objdump</label>
+</div>
+
+<div class="question">
+  <p>6. You need to extract lines containing the word "critical" from a system log file named sys.log, 
+    exclude any of those lines that also contain the word "debug", and save the final cleaned results 
+    into a new file named alerts.txt. Which command achieves this?</p>
+    <label><input type="radio" name="q6" value="a"> grep "critical" sys.log | grep -v "debug" > alerts.txt</label>
+    <label><input type="radio" name="q6" value="b"> grep"critical" sys.log > grep "debug" | alerts.txt</label>
+    <label><input type="radio" name="q6" value="c"> grep "critical" sys.log | grep "debug" > alerts.txt</label>
+    <label><input type="radio" name="q6" value="d"> grep -v "debug" sys.log | grep "critical" > alerts.txt</label>
+</div>
+
+<div class="question">
+  <p>7. You need to connect to a local server running on port 30001
+     that requires an encrypted SSL/TLS negotiation 
+   before it transmits a password token. Which tool is widely used for this client interaction?</p>
+    <label><input type="radio" name="q7" value="a"> nc -ssl localhost 30001</label>
+    <label><input type="radio" name="q7" value="b"> ssh -tls localhost 30001</label>
+    <label><input type="radio" name="q7" value="c"> openssl s_client -connect localhost:30001</label>
+    <label><input type="radio" name="q7" value="d"> telnet -ssl localhost 30001</label>
+</div>
+
+<div class="question">
+  <p>8. Which tool/command can be used to communicate with ports and listen for incoming connections?</p>
+  <label><input type="radio" name="q8" value="a"> nmap</label>
+  <label><input type="radio" name="q8" value="b"> netcat</label>
+  <label><input type="radio" name="q8" value="c"> telnet</label>
+  <label><input type="radio" name="q8" value="d"> ncat</label>
+</div>
+<div class="question">
+  <p>9. Which tool is used to check open ports on a remote host?</p>
+  <label><input type="radio" name="q9" value="a"> socat</label>
+  <label><input type="radio" name="q9" value="b"> nmap</label>
+  <label><input type="radio" name="q9" value="c"> netstat</label>
+  <label><input type="radio" name="q9" value="d"> telnet</label>
+</div>
+<div class="question">
+  <p>10. What tool is used to compare two files or directories side by side?</p>
+  <label><input type="radio" name="q10" value="a"> diff</label>
+  <label><input type="radio" name="q10" value="b"> cmp</label>
+  <label><input type="radio" name="q10" value="c"> sdiff</label>
+  <label><input type="radio" name="q10" value="d"> comm</label>
+</div>
+
+  <button type="submit">Submit</button>
+
+</form>
+<div id="result"></div>
+<script>
+  document.getElementById("quizForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    const correctAnswers = {
+      q1: "a",
+      q2: "b",
+      q3: "c",
+      q4: "b",
+      q5: "a",
+      q6: "a",
+      q7: "c",
+      q8: "d",
+      q9: "b",
+      q10: "a"
+    };
+
+    let score = 0;
+
+    for (let question in correctAnswers) {
+      if (formData.get(question) === correctAnswers[question]) {
+        score++;
+      }
+    }
+
+    const percentage = (score / 10) * 100;
+
+    const resultDiv = document.getElementById("result");
+
+if (percentage >= 80) {
+  resultDiv.innerHTML = "<h2>✅ Passed! Score: " + percentage + "%</h2>";
+} else {
+  resultDiv.innerHTML = "<h2>❌ Not yet. Score: " + percentage + "%</h2><p>Review the areas you missed and try again.</p>";
+}
+  });
+</script>
+    </body>
+</html>
